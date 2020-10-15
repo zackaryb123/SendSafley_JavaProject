@@ -10,10 +10,6 @@ public class Prompt {
     private final Scanner scanner = new Scanner(System.in);
     private final JFileChooser chooser = new JFileChooser();
 
-    public Scanner getScanner() {
-       return scanner;
-    }
-
     public enum ActionTypes {
         UNDO,
         MORE_FILES,
@@ -96,19 +92,19 @@ public class Prompt {
     public boolean action(String type) {
         switch (ActionTypes.valueOf(type)) {
             case UNDO:
-                System.out.println("\n-> Would you like to undo last action? ");
+                System.out.println("\n-> Would you like to undo last action? (Yes/No)");
                 break;
             case MORE_FILES:
-                System.out.println("\n-> Would you like to add another file?");
+                System.out.println("\n-> Would you like to add another file? (Yes/No)");
                 break;
             case NOTIFICATION:
-                System.out.println("\n-> Would you like to send recipient email notification?");
+                System.out.println("\n-> Would you like to send recipient email notification? (Yes/No)");
                 break;
             case FINALIZE:
-                System.out.println("\n-> Would you like to finalize the package? ");
+                System.out.println("\n-> Would you like to finalize the package? (Yes/No)");
                 break;
             case DELETE:
-                System.out.println("\n-> Would you like to delete package? ");
+                System.out.println("\n-> Would you like to delete package? (Yes/No)");
                 break;
             default:
                 System.out.println("\n-- Unrecognized action!");
@@ -119,9 +115,7 @@ public class Prompt {
         while (scanner.hasNextLine() && !isValid || action == null) {
             action = scanner.nextLine();
             isValid = Objects.nonNull(action) && (action.equalsIgnoreCase("YES") || action.equalsIgnoreCase("NO"));
-            if (isValid) {
-                break;
-            }
+            if (isValid) break;
         }
         return action.equalsIgnoreCase("YES");
     }

@@ -78,18 +78,20 @@ public class Main {
 
                 /* -- Prompt user for notifications  -- */
                 boolean doNotify = prompt.action(Prompt.ActionTypes.NOTIFICATION.name());
+                doNotify = !prompt.action(Prompt.ActionTypes.UNDO.name());
+
                 /* -- Prompt user to finalize package with optional notification -- */
                 PackageURL pURL = null;
                 if (prompt.action(Prompt.ActionTypes.FINALIZE.name())) {
                     pURL = Helper.finalizePackage(sendSafely, pkgInfo, doNotify);
                 }
 
-                /* -- Prompt User to delete package -- */
-//                if (Objects.nonNull(pURL)) {
-//                    if (prompt.action(Prompt.ActionTypes.DELETE.name())) {
-//                        Helper.deletePackage(sendSafely, pkgInfo, pURL);
-//                    }
-//                }
+                /* -- Prompt User to delete package --
+                if (Objects.nonNull(pURL)) {
+                    if (prompt.action(Prompt.ActionTypes.DELETE.name())) {
+                        Helper.deletePackage(sendSafely, pkgInfo, pURL);
+                    }
+                } */
             }
         }
     }
