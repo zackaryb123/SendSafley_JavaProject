@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="bcpg-jdk15on-1.65">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/bcpg-jdk15on-1.65.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/bcprov-jdk15on-1.65.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/gson-2.8.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/sendsafely-java-api-3.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
