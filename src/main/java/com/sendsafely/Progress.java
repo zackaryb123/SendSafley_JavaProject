@@ -7,13 +7,13 @@ public class Progress implements ProgressInterface
     // anything you want, or nothing at all.
     public void updateProgress(double progress)
     {
-        System.out.println("Uploading: " + progress + "%");
+        System.out.println(progress + "%");
     }
 
     @Override
     public void updateProgress(String s, double v)
     {
-        System.out.println("Uploading: " + s + " " + v);
+        System.out.println("Uploading: " + s + " " + v + " : ");
     }
 
     @Override

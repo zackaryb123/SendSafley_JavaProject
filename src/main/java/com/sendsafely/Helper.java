@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class Helper {
     public static SendSafely initializeAPI() {
-        return new SendSafely("https://app.sendsafely.com", "vDl02vL_FbYVcMLoGvAAZA", "fWl5VRuA65W-CcqzA2Ct4w");
+        return new SendSafely("https://app.sendsafely.com", "5Y6ChljK8ECxfwPx3AsQww", "3MggBifdilhN7sLMGZV6GQ");
     }
 
     public static UserInformation verifyCredentials(SendSafely sendSafely) {
@@ -100,7 +100,8 @@ public class Helper {
             sendSafely.deleteFile(pkgInfo.getPackageId(), pkgInfo.getRootDirectoryId(), file.getFileId());
         } catch (FileOperationFailedException e) {
             System.out.println("\n~~ Unable to delete file from package!" +
-                    "\n~~ " + e.getError());        }
+                    "\n~~ " + e.getError());
+        }
     }
 
     public static PackageURL finalizePackage(SendSafely sendSafely, Package pkgInfo, boolean doNotify) {

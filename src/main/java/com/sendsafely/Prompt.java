@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class Prompt {
     private final Scanner scanner = new Scanner(System.in);
-    private final JFileChooser chooser = new JFileChooser();
 
     public enum ActionTypes {
         UNDO,
@@ -77,7 +76,7 @@ public class Prompt {
         return phonenumber;
     }
 
-    public String chooseFile() {
+    public String chooseFile(JFileChooser chooser) {
         System.out.println("\n-> Please select a file to upload");
         chooser.showOpenDialog(null);
         String filepath = null;

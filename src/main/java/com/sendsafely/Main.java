@@ -2,6 +2,8 @@ package com.sendsafely;
 
 import com.sendsafely.dto.PackageURL;
 import com.sendsafely.dto.UserInformation;
+
+import javax.swing.*;
 import java.util.Objects;
 
 public class Main {
@@ -9,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Prompt prompt = new Prompt();
         Command command = new Command();
+        final JFileChooser chooser = new JFileChooser();
 
         /* Welcome Message */
         System.out.println("-- ----------------------------------------- --");
@@ -54,17 +57,20 @@ public class Main {
                 while (moreFiles) {
 
                     /* Prompt user for file */
-                    String filepath = prompt.chooseFile();
+                    String filepath = prompt.chooseFile(chooser);
+//                    String filepath = chooser.getSelectedFile().getPath();
+//                    chooser.showOpenDialog(null);
                     if (Objects.nonNull(filepath)) {
-
                         /* Add a local file to the package */
                         File file = Helper.addFileToPackage(sendSafely, pkgInfo, filepath);
                         if (Objects.nonNull(file)) {
+                            System.out.println("file added to package ");
                             /* Track actions */
                             command.trackAction(Command.EventTypes.FILE);
 
                             /* Prompt user undo file */
                             if (prompt.action(Prompt.ActionTypes.UNDO.name())) {
+                                System.out.println("prompt file undo");
                                 command.undo(sendSafely, pkgInfo, null, file);
                             }
                         }
